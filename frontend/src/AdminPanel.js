@@ -33,7 +33,7 @@ export default function AdminPanel() {
   }, []);
 
   const fetchNeighborhoods = async () => {
-    const res = await fetch('http://localhost:5000/api/neighborhoods');
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/neighborhoods`);
     const data = await res.json();
     setNeighborhoods(data);
   };
@@ -41,8 +41,8 @@ export default function AdminPanel() {
   const handleSubmit = async () => {
     const token = localStorage.getItem('token');
     const url = editing 
-      ? `http://localhost:5000/api/neighborhoods/${editing._id}`
-      : 'http://localhost:5000/api/neighborhoods';
+      ? `${process.env.REACT_APP_API_URL}/api/neighborhoods/${editing._id}`
+      : `${process.env.REACT_APP_API_URL}/api/neighborhoods`;
     const method = editing ? 'PUT' : 'POST';
     
     try {
@@ -67,7 +67,7 @@ export default function AdminPanel() {
   const handleDelete = async (id) => {
     const token = localStorage.getItem('token');
     try {
-      const res = await fetch(`http://localhost:5000/api/neighborhoods/${id}`, {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/neighborhoods/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` },
       });

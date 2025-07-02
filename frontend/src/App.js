@@ -44,7 +44,8 @@ function App() {
       setUser({ token, isAdmin });
     }
     
-    axios.get('http://localhost:5000/api/neighborhoods')
+    const api = process.env.REACT_APP_API_URL;
+    axios.get(`${api}/api/neighborhoods`)
       .then(res => {
         setNeighborhoods(res.data);
         setLoading(false);

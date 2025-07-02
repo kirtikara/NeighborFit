@@ -25,7 +25,7 @@ export default function MatchForm({ onMatch }) {
 
   useEffect(() => {
     // Fetch unique cities from the API
-    fetch('http://localhost:5000/api/neighborhoods')
+    fetch(`${process.env.REACT_APP_API_URL}/api/neighborhoods`)
       .then(res => res.json())
       .then(neighborhoods => {
         const uniqueCities = [...new Set(neighborhoods.map(n => n.city))].sort();
@@ -45,7 +45,7 @@ export default function MatchForm({ onMatch }) {
       return;
     }
     setLoading(true);
-    const res = await fetch('http://localhost:5000/api/match', {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/api/match`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ ...weights, city: selectedCity, maxBudget: maxBudget ? Number(maxBudget) : undefined }),
