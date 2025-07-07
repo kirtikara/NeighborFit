@@ -1,6 +1,7 @@
 # NeighborFit
 
 A full-stack web application that matches users to Indian neighborhoods based on safety, pollution, cleanliness, greenery, budget, and more.
+[🔗 Live Demo]( https://neighbor-fit-oq8u.vercel.app/ )
 
 ## 🚀 Features
 - User registration and login (JWT authentication)
@@ -26,6 +27,12 @@ A full-stack web application that matches users to Indian neighborhoods based on
 - **Authentication:** JWT (JSON Web Tokens), bcryptjs
 - **Data Processing:** Node.js scripts (fetches, normalizes, and loads real data)
 - **Deployment:** (Ready for) Render.com, Vercel, Railway, or any cloud
+
+🔄 Trade-offs & Decisions
+
+- Focused on Delhi/NCR due to limited public datasets
+- Used mock+real data mix to simulate a scalable structure
+- Opted for MongoDB over SQL for flexible data modeling
 
 ## Getting Started
 
